@@ -1,12 +1,25 @@
 import React from 'react';
 import Comments from '../../../Components/Comments/Comments';
-
+import { useForm } from "react-hook-form";
 const Post = ({ post }) => {
+    const { handleSubmit, register } = useForm();
+    const handleComment = data => {
+        const { comment } = data;
+        fetch('https://job-task-server-puce.vercel.app/comment', {
+            method: 'Post',
+            headers: {
+                'content-type': 'applictaion/json'
+            },
+            body: JSON.stringify(comment)
+        })
+            .then(res => res.json())
+            .then(data => { })
+            .catch(err => console.error(err))
+    }
 
     return (
         <div className="rounded p-8">
-            <h3 className='text-xl font-semibold'>Md Rokibul Islam Cmt</h3>
-            <p>{post.post}</p>
+            <p className='text-xl font-semibold my-6'>{post.post}</p>
             <img className='my-2' src={post.image} alt="" />
             <div className='flex gap-4'>
                 <div>
@@ -16,10 +29,10 @@ const Post = ({ post }) => {
                     <button className="bg-red-500 text-white px-4 py-px">Love</button>
                 </div>
             </div>
-            <div className='my-4 flex gap-3'>
-                <input type="text" placeholder="Type here" className="input input-bordered input-warning w-full max-w-xs" />
+            <form onSubmit={handleSubmit(handleComment)} className='my-4 flex gap-3'>
+                <input {...register('comment')} type="text" placeholder="Type here" className="input input-bordered input-warning w-full max-w-xs" />
                 <button className='btn btn-primary'>Post</button>
-            </div>
+            </form>
             <div className='w-96'>
                 <Comments></Comments>
             </div>

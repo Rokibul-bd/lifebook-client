@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PickerOverlay } from 'filestack-react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
             image
         }
         console.log(posts)
-        fetch('http://localhost:5000/post', {
+        fetch('https://job-task-server-puce.vercel.app/post', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

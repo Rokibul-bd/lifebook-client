@@ -33,7 +33,7 @@ const SignUp = () => {
             email,
             image
         }
-        fetch('http://localhost:5000/createUser', {
+        fetch('https://job-task-server-puce.vercel.app/createUser', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

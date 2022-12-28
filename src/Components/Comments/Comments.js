@@ -7,7 +7,7 @@ const Comments = () => {
                 <img src="https://placeimg.com/80/80/people" alt='' />
             </div>
             <div className='items-end'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum voluptatibus inventore molestias rem perferendis necessitatibus similique, nihil aspernatur maxime! Omnis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum voluptatibus inventore       molestias rem perferendis necessitatibus similique, nihil aspernatur maxime! Omnis?</p>
             </div>
         </div>
     );

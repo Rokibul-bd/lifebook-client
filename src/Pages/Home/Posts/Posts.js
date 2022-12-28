@@ -8,7 +8,7 @@ const Posts = () => {
     const { data: posts = [] } = useQuery({
         queryKey: ['post'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/post')
+            const res = await fetch('https://job-task-server-puce.vercel.app/post')
             const data = res.json()
             return data
         }
